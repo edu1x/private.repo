@@ -24,11 +24,11 @@ jobs:
           
           pyinstaller --onefile fcdn.py
           echo " build successfully!"
-      
+          ls ./client/python/dist/
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: server-and-client
           path: |
  
-            ./client/python/dist/main.exe
+            ./client/python/dist/fcdn.exe
